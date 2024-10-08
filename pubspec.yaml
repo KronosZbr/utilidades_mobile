@@ -1,0 +1,30 @@
+name: utilidades_mobile
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.4.4 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  flutter_vector_icons: ^2.0.0
+  splash_screen_view: ^3.0.0
+  geolocator: ^9.0.2
+  image_picker: ^0.8.7+4
+  connectivity_plus: ^3.0.3
+  cupertino_icons: ^1.0.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/download.jpeg
