@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'internet.dart'; // Importando a página de verificação de internet
-import 'gps_page.dart'; // Importando a página de GPS
+import 'internet.dart';
+import 'gps_page.dart';
 import 'package:splash_screen_view/SplashScreenView.dart';
+import 'photo_page.dart';
+import 'tic_tac_toe.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,8 +16,7 @@ class MyApp extends StatelessWidget {
       navigateRoute: const HomeScreen(),
       duration: 3000,
       imageSize: 130,
-      imageSrc:
-          "assets/download.jpeg", // Certifique-se que essa imagem está no local correto
+      imageSrc: "assets/download.jpeg",
       text: "Bem-Vindo ao Meu App",
       textStyle: const TextStyle(fontSize: 30.0),
       backgroundColor: Colors.white,
@@ -63,12 +64,11 @@ class HomeScreen extends StatelessWidget {
               leading: const Icon(Icons.wifi),
               title: const Text('Verificar Wi-Fi'),
               onTap: () {
-                Navigator.pop(context); // Fecha o drawer
+                Navigator.pop(context);
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) =>
-                        InternetCheckPage(), // Abre a tela de verificação de Internet
+                    builder: (context) => InternetCheckPage(),
                   ),
                 );
               },
@@ -77,11 +77,11 @@ class HomeScreen extends StatelessWidget {
               leading: const Icon(Icons.location_on),
               title: const Text('Acessar GPS'),
               onTap: () {
-                Navigator.pop(context); // Fecha o drawer
+                Navigator.pop(context);
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => GpsPage(), // Abre a tela de GPS
+                    builder: (context) => GpsPage(),
                   ),
                 );
               },
@@ -90,14 +90,24 @@ class HomeScreen extends StatelessWidget {
               leading: const Icon(Icons.photo),
               title: const Text('Acessar Galeria/Câmera'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => PhotoPage(),
+                  ),
+                );
               },
             ),
             ListTile(
               leading: const Icon(Icons.videogame_asset),
               title: const Text('Jogos da Velha com IA'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => TicTacToePage(),
+                  ),
+                );
               },
             ),
             ListTile(

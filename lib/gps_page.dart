@@ -19,7 +19,6 @@ class _GpsPageState extends State<GpsPage> {
     bool serviceEnabled;
     LocationPermission permission;
 
-    // Verifica se os serviços de localização estão habilitados
     serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
       setState(() {
@@ -28,7 +27,6 @@ class _GpsPageState extends State<GpsPage> {
       return;
     }
 
-    // Verifica se o usuário concedeu permissão de localização
     permission = await Geolocator.checkPermission();
     if (permission == LocationPermission.denied) {
       permission = await Geolocator.requestPermission();
@@ -47,7 +45,6 @@ class _GpsPageState extends State<GpsPage> {
       return;
     }
 
-    // Obtém a localização atual
     Position position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.high);
     setState(() {

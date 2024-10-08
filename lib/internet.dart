@@ -35,8 +35,21 @@ class _InternetCheckPageState extends State<InternetCheckPage> {
       appBar: AppBar(
         title: const Text('Verificar Internet'),
       ),
-      body: Center(
-        child: Text('Status da conexão: $_connectionStatus'),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Center(
+            child: Text(
+              'Status da conexão: $_connectionStatus',
+              style: const TextStyle(fontSize: 20),
+            ),
+          ),
+          const SizedBox(height: 20),
+          ElevatedButton(
+            onPressed: _checkInternetConnection,
+            child: const Text('Atualizar Status'),
+          ),
+        ],
       ),
     );
   }
