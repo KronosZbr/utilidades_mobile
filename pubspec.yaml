@@ -14,9 +14,11 @@ dependencies:
   flutter_vector_icons: ^2.0.0
   splash_screen_view: ^3.0.0
   geolocator: ^9.0.2
+  url_launcher: ^6.3.0 
   image_picker: ^0.8.7+4
   connectivity_plus: ^3.0.3
   cupertino_icons: ^1.0.6
+  sensors_plus: ^6.0.1
 
 dev_dependencies:
   flutter_test:

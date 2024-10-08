@@ -4,6 +4,8 @@ import 'gps_page.dart';
 import 'package:splash_screen_view/SplashScreenView.dart';
 import 'photo_page.dart';
 import 'tic_tac_toe.dart';
+import 'sensors.dart';
+import 'whatsapp_message.dart';
 
 void main() {
   runApp(MyApp());
@@ -114,14 +116,24 @@ class HomeScreen extends StatelessWidget {
               leading: const Icon(Icons.device_unknown),
               title: const Text('Giroscópio e Acelerômetro'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => GyroscopeAccelerometerPage(),
+                  ),
+                );
               },
             ),
             ListTile(
               leading: const Icon(Icons.message),
               title: const Text('Enviar Mensagem para WhatsApp'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const WhatsappMessagePage(),
+                  ),
+                );
               },
             ),
           ],
