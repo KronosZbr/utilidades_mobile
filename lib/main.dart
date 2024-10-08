@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'internet.dart'; // Importando a página de verificação de internet
+import 'gps_page.dart'; // Importando a página de GPS
 import 'package:splash_screen_view/SplashScreenView.dart';
 
 void main() {
@@ -13,7 +14,8 @@ class MyApp extends StatelessWidget {
       navigateRoute: const HomeScreen(),
       duration: 3000,
       imageSize: 130,
-      imageSrc: "assets/download.jpeg",
+      imageSrc:
+          "assets/download.jpeg", // Certifique-se que essa imagem está no local correto
       text: "Bem-Vindo ao Meu App",
       textStyle: const TextStyle(fontSize: 30.0),
       backgroundColor: Colors.white,
@@ -61,10 +63,12 @@ class HomeScreen extends StatelessWidget {
               leading: const Icon(Icons.wifi),
               title: const Text('Verificar Wi-Fi'),
               onTap: () {
+                Navigator.pop(context); // Fecha o drawer
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => InternetCheckPage(),
+                    builder: (context) =>
+                        InternetCheckPage(), // Abre a tela de verificação de Internet
                   ),
                 );
               },
@@ -73,7 +77,13 @@ class HomeScreen extends StatelessWidget {
               leading: const Icon(Icons.location_on),
               title: const Text('Acessar GPS'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.pop(context); // Fecha o drawer
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => GpsPage(), // Abre a tela de GPS
+                  ),
+                );
               },
             ),
             ListTile(
