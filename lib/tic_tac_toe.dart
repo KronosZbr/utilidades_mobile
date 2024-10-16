@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'dart:math'; // Para gerar movimentos aleatórios para a IA
+import 'dart:math';
 
 class TicTacToePage extends StatefulWidget {
   @override
@@ -7,14 +7,12 @@ class TicTacToePage extends StatefulWidget {
 }
 
 class _TicTacToePageState extends State<TicTacToePage> {
-  List<String> board = List.filled(9, ''); // Representação do tabuleiro
-  String currentPlayer = 'X'; // Jogador atual
+  List<String> board = List.filled(9, '');
+  String currentPlayer = 'X';
   bool gameOver = false;
-  String winner = ''; // Vencedor
+  String winner = '';
 
-  // Função para verificar se há um vencedor ou empate
   void _checkWinner() {
-    // Definindo as combinações vencedoras
     List<List<int>> winningCombinations = [
       [0, 1, 2],
       [3, 4, 5],
@@ -46,7 +44,6 @@ class _TicTacToePageState extends State<TicTacToePage> {
     }
   }
 
-  // Função para reiniciar o jogo
   void _resetGame() {
     setState(() {
       board = List.filled(9, '');
@@ -56,7 +53,6 @@ class _TicTacToePageState extends State<TicTacToePage> {
     });
   }
 
-  // Função para a IA fazer um movimento aleatório
   void _makeAIMove() {
     List<int> availableSpots = [];
     for (int i = 0; i < board.length; i++) {
@@ -71,17 +67,15 @@ class _TicTacToePageState extends State<TicTacToePage> {
 
       setState(() {
         board[move] = currentPlayer;
-        _checkWinner(); // Verifica se o IA ganhou após o movimento
+        _checkWinner();
 
         if (!gameOver) {
-          currentPlayer =
-              currentPlayer == 'X' ? 'O' : 'X'; // Alterna para o jogador
+          currentPlayer = currentPlayer == 'X' ? 'O' : 'X';
         }
       });
     }
   }
 
-  // Função para processar o toque no tabuleiro
   void _handleTap(int index) {
     if (!gameOver && board[index] == '') {
       setState(() {
@@ -89,7 +83,7 @@ class _TicTacToePageState extends State<TicTacToePage> {
         _checkWinner();
 
         if (!gameOver) {
-          currentPlayer = currentPlayer == 'X' ? 'O' : 'X'; // Alterna para IA
+          currentPlayer = currentPlayer == 'X' ? 'O' : 'X';
           _makeAIMove();
         }
       });
@@ -105,7 +99,6 @@ class _TicTacToePageState extends State<TicTacToePage> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // Exibe o tabuleiro
           GridView.builder(
             shrinkWrap: true,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -137,7 +130,6 @@ class _TicTacToePageState extends State<TicTacToePage> {
             },
           ),
           const SizedBox(height: 20),
-          // Exibe o vencedor ou se o jogo acabou em empate
           if (gameOver)
             Text(
               winner == 'Empate' ? 'Jogo empatado!' : 'O vencedor é: $winner',
